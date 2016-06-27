@@ -206,8 +206,8 @@ static void ExchangedMethod(SEL originalSelector, SEL swizzledSelector, Class cl
         
         tabCount++;
     }
-    CGFloat width = [UIScreen mainScreen].bounds.size.height / tabCount;
-    NSUInteger clickIndex = point.x / (NSUInteger)width;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width / tabCount;
+    NSUInteger clickIndex = ceilf(point.x) / ceilf(width);
     
     UITabBarController *controller = (UITabBarController *)[(AppDelegate *)[[UIApplication sharedApplication] delegate] window].rootViewController;
     [controller setSelectedIndex:clickIndex];
