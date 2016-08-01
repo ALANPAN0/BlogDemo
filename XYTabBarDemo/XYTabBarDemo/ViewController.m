@@ -16,7 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [btn addTarget:self action:@selector(push) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    btn.frame = self.view.bounds;
+}
+
+- (void)push {
+    UIViewController *vc = [UIViewController new];
+    vc.view.backgroundColor = [UIColor blackColor];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
